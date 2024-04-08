@@ -2,6 +2,20 @@
 layout: layout.liquid
 title: 11ty Boilerplate
 ---
-
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<body class="bg-grey-400">
+    <h1 class="text-center text-3xl font-bold mt-10">API Mashup</h1>
+    <div class="container mx-auto mt-10 grid grid-cols-2 gap-4">
+        <div class="flex justify-center items-center">
+            <div x-data="{dogs: $fetchjson('https://dog.ceo/api/breeds/image/random', jsonItem='message')}">
+                <img alt="message" x-bind:src="dogs" class="border-4 border-blue-500 rounded-md" />
+                <h2 class="text-center text-2xl font-bold mt-10">Refresh for Random Dogs</h2>
+            </div>
+        </div>
+        <div class="flex justify-center items-center">
+            <div x-data="{dish: $fetchjson('https://foodish-api.com/api/', jsonItem='image')}">
+                <img alt="image" x-bind:src="dish" class="border-4 border-blue-500 rounded-md" />
+                <h2 class="text-center text-2xl font-bold mt-10">Random Foods these dogs wish they could have</h2>
+            </div>
+        </div>
+    </div>     
+</body>
